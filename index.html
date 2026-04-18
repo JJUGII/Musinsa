@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>주기영 | QA & Automation Engineer Portfolio</title>
+<style>
+    /* 무신사 브랜드 컬러 및 폰트 정의 */
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+    :root {
+        --musinsa-black: #000000;
+        --musinsa-gray-1: #333333;
+        --musinsa-gray-2: #888888;
+        --musinsa-gray-3: #f5f5f5;
+        --accent-red: #ff2d55;
+        --border-color: #e5e5e5;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Pretendard', sans-serif;
+        background-color: #ffffff;
+        color: var(--musinsa-black);
+        line-height: 1.8;
+        letter-spacing: -0.02em;
+    }
+
+    /* 상단 블랙 헤더 */
+    .top-header {
+        background: var(--musinsa-black);
+        padding: 50px 0;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .top-header img {
+        height: 30px;
+    }
+
+    /* 컨테이너 */
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 80px 24px;
+    }
+
+    /* 타이틀 섹션 */
+    header {
+        margin-bottom: 100px;
+    }
+
+    header h1 {
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 24px;
+        word-break: keep-all;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+        color: var(--musinsa-gray-1);
+        font-weight: 500;
+        margin-bottom: 12px;
+    }
+
+    .contact {
+        font-size: 1rem;
+        color: var(--musinsa-gray-2);
+    }
+
+    .contact a {
+        color: inherit;
+        text-decoration: none;
+        margin-right: 15px;
+        border-bottom: 1px solid transparent;
+    }
+
+    .contact a:hover {
+        border-bottom: 1px solid var(--musinsa-gray-2);
+    }
+
+    /* 공통 섹션 스타일 */
+    section {
+        margin-bottom: 120px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        border-bottom: 2px solid var(--musinsa-black);
+        display: inline-block;
+        padding-bottom: 8px;
+    }
+
+    /* 역량 요약 박스 */
+    .expertise-box {
+        background-color: var(--musinsa-gray-3);
+        padding: 40px;
+        margin-top: 20px;
+    }
+
+    .expertise-box ul {
+        list-style: none;
+    }
+
+    .expertise-box li {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        display: flex;
+        gap: 15px;
+    }
+
+    .expertise-box li::before {
+        content: "—";
+        font-weight: 900;
+    }
+
+    /* 프로젝트 카드 */
+    .project-card {
+        margin-bottom: 80px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .project-card:last-child {
+        border-bottom: none;
+    }
+
+    .project-card h3 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+    }
+
+    .project-meta {
+        font-size: 0.95rem;
+        color: var(--musinsa-gray-2);
+        margin-bottom: 24px;
+        font-weight: 600;
+    }
+
+    .project-content {
+        font-size: 1rem;
+    }
+
+    .project-content strong {
+        color: var(--musinsa-black);
+        font-weight: 700;
+    }
+
+    .project-content ul {
+        padding-left: 20px;
+        margin-top: 10px;
+    }
+
+    .project-content li {
+        margin-bottom: 8px;
+    }
+
+    /* 하이라이트 성과 */
+    .impact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .impact-item {
+        border: 1px solid var(--border-color);
+        padding: 30px;
+        text-align: center;
+    }
+
+    .impact-item .value {
+        font-size: 2.5rem;
+        font-weight: 900;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .impact-item .label {
+        font-size: 0.9rem;
+        color: var(--musinsa-gray-2);
+        font-weight: 600;
+    }
+
+    /* 인터랙티브 QA 엔진 */
+    .qa-box {
+        background: var(--musinsa-black);
+        color: #fff;
+        padding: 50px;
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .qa-box h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    #verify-btn {
+        background: #fff;
+        color: var(--musinsa-black);
+        border: none;
+        padding: 16px 40px;
+        font-weight: 800;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+        text-transform: uppercase;
+    }
+
+    #verify-btn:hover {
+        background: var(--musinsa-gray-2);
+        color: #fff;
+    }
+
+    #qa-status {
+        margin-top: 20px;
+        font-weight: 500;
+    }
+
+    .bug-highlight {
+        color: var(--accent-red);
+        text-decoration: underline wavy;
+        font-weight: 700;
+    }
+
+    .defect-list {
+        margin-top: 30px;
+        text-align: left;
+        background: #fff;
+        color: #000;
+        padding: 20px;
+        display: none;
+    }
+
+    /* 푸터 */
+    footer {
+        padding: 100px 0;
+        border-top: 1px solid var(--border-color);
+        font-size: 0.9rem;
+        color: var(--musinsa-gray-2);
+    }
+
+    @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .impact-grid { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+
+<div class="top-header">
+    <img src="https://corp.musinsa.com/images/logo/logo_musinsa.png" alt="MUSINSA">
+</div>
+
+<div class="container">
+
+    <header>
+        <h1>QA는 기능이 아니라,<br>사용자의 경험입니다.</h1>
+        <div class="subtitle">주기영 | QA & Automation Engineer</div>
+        <div class="contact">
+            <a href="tel:01071676776">010.7167.6776</a>
+            <a href="mailto:rldud0630@naver.com">rldud0630@naver.com</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Expertise</h2>
+        <div class="expertise-box">
+            <ul>
+                <li><strong>9년 차 품질 전문가:</strong> 임베디드부터 모바일/PC 플랫폼을 아우르는 전방위 품질 보증</li>
+                <li><strong>테스트 자동화 설계:</strong> <span id="typo1">Pyhton</span>, Appium, WinAppDriver 기반 멀티 플랫폼 프레임워크 구축</li>
+                <li><strong>글로벌 리더십:</strong> TOYOTA, GM, 현대차 등 글로벌 프로젝트 QC 총괄 및 <span id="typo2">Relase</span> 관리</li>
+                <li><strong>시스템 구조 분석:</strong> SW 동작 구조 분석을 통한 Edge Case 발굴 및 생산 공정 최적화</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Experience</h2>
+    <section>
+		<div class="project-item">
+			<h3>01. 멀티 플랫폼 테스트 자동화 프레임워크 구축 (맵퍼스)</h3>
+			<ul>
+				<li>프로젝트 성격: 테스트 공정 효율화를 위한 자동화 환경 개발.</li>
+				<li>기술 스택: Python, Appium, ADB, AutoHotkey, appium, <span id="typo4">Seleniun</span>.</li>
+				<li>상세 내용:</li>
+				<ul>
+					<li><span id="typo3">Probelm</span>: 정기 업데이트 시 PC 버전 SW 및 모바일(Android/iOS), PND 단말기의 반복적 수동 테스트로 인한 리소스 과부하.</li>
+					<li>Action: 
+						<ul>
+							<li>Python 및 AutoHotkey를 연동하여 윈도우 UI 객체 인식 자동화 구현.</li>
+							<li>Appium을 도입하여 Android 및 iOS 멀티 디바이스 병렬 테스트 시스템 구축.</li>
+							<li>ADB 스크립트를 통한 안드로이드 단말 제어 자동화 및 모바일 웹/앱 통합 검증 시나리오 확보.</li>
+						</ul>
+					</li>
+					<li>Result: 테스트 리드타임 70% 단축, 2022년 맵퍼스 우수팀원 수상.</li>
+				</ul>
+			</ul>
+		</div>
+	</section>
+
+    <section>
+		<div class="project-item">
+			<h3>02. TOYOTA 및 ATLAN 글로벌 유지보수 운영 (맵퍼스)</h3>
+			<ul>
+				<li>프로젝트 성격: 글로벌 및 국내 B2B 고객사 릴리즈 관리.</li>
+				<li>역할: 프로젝트 운영(PM) 및 최종 QC 배포 총괄.</li>
+				<li>상세 내용:</li>
+				<ul>
+					<li>연 4회(3, 6, 9, 12월) 실시되는 대규모 정기 업데이트의 일정 관리 및 배포 프로세스 총괄.</li>
+					<li>TOYOTA, AMTELECOM 및 국내 50여 개 업체(파인디지털 등) 대상 수정 내역 검증 및 빌드 안정성 확보.</li>
+					<li>배포 프로세스 최적화 및 고객사 기술 커뮤니케이션 전담.</li>
+				</ul>
+			</ul>
+		</div>
+	</section>
+
+    <section>
+		<div class="project-item">
+			<h3>03. 한국GMK 내비게이션 유지보수 및 PM (시터스)</h3>
+			<ul>
+				<li>프로젝트 성격: 글로벌 완성차 품질 보증 및 운영.</li>
+				<li>역할: 24개 차종 통합 유지보수 프로젝트 매니징 및 맵 가공</li>
+				<li>상세 내용:</li>
+				<ul>
+					<li>대규모 차종(24차종)의 상이한 요구사항을 체계적으로 분류하여 업데이트 일정 및 품질 관리.</li>
+					<li>실제 도로 환경 반영을 위한 네트워크 가중치 튜닝 및 맵 데이터 가공 보조.</li>
+					<li>쉐보레(Chevrolet) 등 글로벌 브랜드 규격에 맞춘 결함 관리 및 성능 최적화.</li>
+				</ul>
+			</ul>
+		</div>
+	</section>
+
+    <section>
+		<div class="project-item">
+			<h3>04. 현대차/타타대우 상용차 내비게이션 QC (시터스)</h3>
+			<ul>
+				<li>프로젝트 성격: 임베디드 특수 단말 품질 보증.</li>
+				<li>역할: 현대상용차(9차종) 및 타타대우(3차종) 전담 QC.</li>
+				<li>상세 내용:</li>
+				<ul>
+					<li>실차 주행 테스트(Ride Test): 전국 주요 구간 실주행을 통한 경로 안내, ETA 정확도, 하이패스 안내 등 전반적인 성능 검증.</li>
+					<li>상용차 특화 검증: 차량 높이/중량 제한 등 화물차 전용 탐색 로직 및 특수 구간 안내 무결성 확인.</li>
+					<li>임베디드 하드웨어 제어와 SW 연동 시 발생하는 하드웨어 가속 및 메모리 이슈 발굴.</li>
+				</ul>
+			</ul>
+		</div>
+	</section>
+
+    <section>
+    <section>
+		<div class="project-item">
+			<h3>05. 포드/링컨 글로벌 내비게이션 QC (시터스)</h3>
+			<ul>
+				<li>프로젝트 성격: 수입 완성차 로컬라이징 및 검증.</li>
+				<li>상세 내용:</li>
+				<ul>
+					<li>북미 사양 내비게이션의 국내 로컬라이징 품질 검증 및 안드로이드 OS 기반 시스템 안정성 테스트.</li>
+					<li>글로벌 텔레매틱스 서비스 연동 테스트 및 실시간 교통정보(TPEG) 수신 품질 확인.</li>
+				</ul>
+			</ul>
+		</div>
+	</section>
+
+	<section>
+
+		<div class="project-item">
+			<h3>06. 금융 기기(지폐 계수기) 임베디드 QC 및 생산기술 (기산전자)</h3>
+			<ul>
+				<li>프로젝트 성격: 정밀 센서/임베디드 SW 제어 검증 및 생산 공정 최적화.</li>
+				<li>상세 내용:</li>
+				<ul>
+					<li>품질 검증: 지폐 인식 센서 데이터와 소프트웨어 알고리즘 간의 <span id="typo6">Accurasy</span> 정합성 테스트 및 재현 케이스 발굴.</li>
+					<li>생산 기술 관리: 생산 라인 불량 원인 분석을 통한 공정 개선 및 생산 케파(Capacity) 증대 기여.</li>
+					<li>하드웨어 관리: PCB SMD 업체 불량 관리 및 불량 PCB 회로 분석을 통한 직접 수리 수행.</li>
+				</ul>
+			</ul>
+		</div>
+    </section>
+
+    <section>
+        <h2>Technical Highlights</h2>
+        <div class="project-content">
+            <ul>
+                <li><strong>독보적인 예외 케이스 발굴:</strong> 사용자의 행동 범위를 벗어난 탐색적 테스트로 버그 선제적 차단</li>
+                <li><strong>HW-SW 통합 이해:</strong> 하드웨어 인터럽트 분석부터 임베디드 구조까지 시스템 하위 레벨 이슈 대응</li>
+                <li><strong>프로세스 효율화:</strong> 복잡한 배포 일정 조율 및 생산 공정 최적화 경험</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Impact</h2>
+        <div class="impact-grid">
+            <div class="impact-item">
+                <span class="value">70%</span>
+                <span class="label">테스트 리드타임 단축</span>
+            </div>
+            <div class="impact-item">
+                <span class="value">9년 4개월</span>
+                <span class="label">무결근 성실함의 가치</span>
+            </div>
+            <div class="impact-item">
+                <span class="value">50+</span>
+                <span class="label">글로벌 파트너사 협업</span>
+            </div>
+            <div class="impact-item">
+                <span class="value">2022</span>
+                <span class="label">품질 혁신 우수팀원 수상</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="qa-box">
+        <h3>"QA는 완벽을 향한 끊임없는 검증입니다."</h3>
+        <p style="margin-bottom: 30px; color: var(--musinsa-gray-2);">본 포트폴리오의 무결성을 지금 바로 확인해 보세요.</p>
+        <button id="verify-btn" onclick="runQA()">Run QA Test</button>
+        <div id="qa-status"></div>
+        <div id="defect-list" class="defect-list">
+            <strong style="color: var(--accent-red);">Detected Issues:</strong>
+            <ul id="defect-ul" style="margin-top: 10px; list-style: none;"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Ju Gi-yeong. All Rights Reserved.</p>
+        <p>Pretendard Font Applied | Musinsa Brand Style Guide Inspired</p>
+    </footer>
+
+</div>
+
+<script>
+    function runQA() {
+        const btn = document.getElementById('verify-btn');
+        const status = document.getElementById('qa-status');
+        const list = document.getElementById('defect-list');
+        const ul = document.getElementById('defect-ul');
+
+        btn.disabled = true;
+        status.innerText = "QA 엔진 구동 중... 오타 및 결함을 탐색합니다.";
+        ul.innerHTML = "";
+
+        const defects = [
+            { id: "typo1", typo: "Pyhton", correct: "Python" },
+            { id: "typo2", typo: "Relase", correct: "Release" },
+            { id: "typo3", typo: "Probelm", correct: "Problem" },
+            { id: "typo4", typo: "Seleniun", correct: "Selenium" },
+            { id: "typo6", typo: "Accurasy", correct: "Accuracy" }
+        ];
+
+        setTimeout(() => {
+            list.style.display = "block";
+            defects.forEach(d => {
+                const el = document.getElementById(d.id);
+                if(el) {
+                    el.classList.add('bug-highlight');
+                    const li = document.createElement('li');
+                    li.style.cssText = "padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer;";
+                    li.innerHTML = `⚠️ <b style="color:red;">"${d.typo}"</b> → <span style="color:blue;">"${d.correct}"</span>`;
+                    li.onclick = () => el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    ul.appendChild(li);
+                }
+            });
+            status.innerText = `검증 완료: 총 ${defects.length}건의 미세 결함이 탐지되었습니다.`;
+            btn.disabled = false;
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>
